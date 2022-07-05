@@ -1,0 +1,54 @@
+html
+  head
+    title= roomname
+    link(rel='stylesheet', href='/easyrtc/easyrtc.css')
+    link(rel='stylesheet', href='css/bootstrap.min.css')
+    link(rel='styelsheet', href='css/bootstrap-theme.min.css')
+
+    link(rel='stylesheet', href='fonts/font-awesome-4.3.0/css/font-awesome.min.css')
+    link(rel='stylesheet', href='fonts/vicons/vicons-font.css')
+    link(rel='stylesheet', href='css/chat.css')
+  body
+    .container
+      h1= roomname
+      .row
+        #videoChat.col-md-8
+          video(id='self', width='300', height='200', volume='50')
+          video(id='caller0', width='300', height='200', volume='50')
+          video(id='caller1', width='300', height='200', volume='50')
+          video(id='caller2', width='300', height='200', volume='0')
+        #textChat.col-md-4
+          div(class="chat-window")
+            div(class="chat-messages")
+              ol(class="chat-messages-list")
+
+            div(class="chat-input-bar")
+              div(class="chat-info-container")
+
+              div(class="chat-effect-container")
+                div(class="chat-effect-bar")
+
+              div(class="chat-input-wrapper")
+                div(class="chat-input" contenteditable="" id="message")
+                button(class="chat-send",id='sendBtn')
+                  i(class="fa fa-paper-plane")
+
+        //
+          #records
+          #sendBox
+          
+            input(type='text', id='message')
+            button(id='sendBtn', onclick='sendMessage()') Send Message
+            
+            button(id='leavBtn', onclick='leaveRoom()') Leave Room
+    script(type='text/javascript', src='/socket.io/socket.io.js')
+    script(type='text/javascript', src='/easyrtc/easyrtc.js')
+    script(type='text/javascript', src='js/jquery-1.11.1.min.js')
+    script(type='text/javascript', src='js/bootstrap.min.js')
+    script(type='text/javascript', src='js/TweenMax.min.js')
+    script(type='text/javascript', src='js/chat.js')
+    //
+    script(type="text/javascript").
+      var username = '!{username}';
+      var roomname = '!{roomname}';
+    script(type='text/javascript', src='js/room.js')

@@ -1,0 +1,15 @@
+{
+  "name": "mnnitchat",
+  "version": "0.1.0",
+  "author": "Tushalien",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.10.0",
+    "easyrtc": "1.0.x",
+    "express": "*",
+    "jade": "^1.8.1",
+    "socket.io": "0.9.x"
+  }
+}
